@@ -305,8 +305,10 @@
     }
   }
 
+/* Allow long institute names to wrap */
   li {
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   a {
