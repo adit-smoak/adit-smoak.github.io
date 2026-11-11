@@ -8,8 +8,9 @@
 #      Markdown formatted page while the second is generated using JSON.
 
 main:
-  - title: "Publications"
-    url: /publications/  
+  # Publications hidden for now (paper rejected, Nov 2026). Uncomment to bring the tab back.
+  # - title: "Publications"
+  #   url: /publications/
 
   - title: "Projects"
     url: /projects/

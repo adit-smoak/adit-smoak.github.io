@@ -1,4 +1,3 @@
-
 <style>
     .news-box {
         background-color: #dbeaff;
@@ -24,6 +23,11 @@
         margin-bottom: 0;
     }
 
+    .news-box a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
     /* Dark mode */
     html[data-theme="dark"] .news-box {
         background-color: #1d2b3d;
@@ -33,14 +37,14 @@
 </style>
 
 <div class="news-box">
+    <h2>News</h2>
 
-
-    <p>[Sep, 2026] My first-authored manuscript goes under review at Neural Networks [Q1, IF 7.2]</p>
-    <p>[Aug, 2025] I won the MATLAB AI challenge 2025</p>
-    <p>[Dec, 2024] Our team won the Smart India Hackathon at IIT Roorkee</p>
-
-
-    <!-- <p>[Sep, 2026] blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </p>
-    <p>[Aug, 2025] blah blah blah blah blah blah blah blah blah blah blah </p>
-    <p>[Dec, 2024] blah blah blah blah blah blah blah blah blah blah blah blah blah </p> -->
+    {% comment %} Hidden: paper rejected (Nov 2026).
+    <p>[Sep, 2026] My first-author manuscript is now <a href="/publication/2026-09-20-modified-resnext">under review at <i>Neural Networks</i></a> [Q1, IF 7.2]</p>
+    {% endcomment %}
+    <p>[Aug, 2026] Joined IIT Bhubaneswar as a research associate</p>
+    <p>[Jan, 2026] Joined the Digital Audio Processing Lab at IIT Bombay as a project assistant</p>
+    <p>[Aug, 2025] Won the <a href="/projects/top-quark-tagging/">MATLAB AI Challenge 2025</a> (1st place globally)</p>
+    <p>[Jun, 2025] Started a research internship at NTRO, Bangalore</p>
+    <p>[Dec, 2024] Our team won the <a href="/projects/hyperspectral-analysis/">Smart India Hackathon 2024</a> at IIT Roorkee</p>
 </div>

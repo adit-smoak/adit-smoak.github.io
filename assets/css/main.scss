@@ -59,11 +59,21 @@
 }
 
 
-/* Square profile picture */
+/* Square profile picture (aspect-ratio keeps it square at every size, including the small avatar on phones) */
 .author__avatar img {
-  width: 160px;
-  height: 160px;
-  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   border-radius: 10%;
+}
+
+/* When the sidebar is stacked (>= 925px, the theme's $large breakpoint), size the photo so its
+   right edge lines up with the comma in "Indian Institute of Technology," in the sidebar.
+   11.3rem = the measured width of that line (icon + text, 203px at the 18px root size).
+   If the sidebar column is narrower than that, the photo just fills the column. */
+@media (min-width: 925px) {
+  .author__avatar img {
+    width: 11.3rem;
+    max-width: 100%;
+  }
 }
