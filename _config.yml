@@ -280,8 +280,8 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
-      comment: true
+      share: false        # no "Share on" buttons on project pages
+      pagination: false   # no Previous/Next buttons on project pages
   # _talks
   - scope:
       path: ""

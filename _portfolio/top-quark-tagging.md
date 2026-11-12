@@ -7,7 +7,8 @@ order: 1
 
 Built for the MATLAB AI Challenge 2025, where it placed first worldwide.{% comment %} Hidden: paper rejected (Nov 2026). The work was later extended into a [manuscript now under review at *Neural Networks*](/publication/2026-09-20-modified-resnext).{% endcomment %}
 
-* Built a CNN classifier in MATLAB Deep Network Designer to identify top-quark jets from QCD background, using jet energy and momentum values from CERN's open dataset on Zenodo.
-* Designed a new architecture that combines ResNeXt blocks with squeeze-and-excitation (SE) channel attention in the intermediate stages, followed by late fusion of global features to pick out the most relevant statistics.
-* Shaped the architecture around the spatial and channel structure of the jet data, with FPGA deployment in mind.
-* Reached **90.87% accuracy**, **ROC AUC of 0.968** and **PR AUC of 0.971**.
+A top quark decays almost as soon as it is produced, leaving a narrow spray of particles (a jet) in the detector. The goal was to separate these jets from the much more common jets produced by ordinary QCD processes, using CERN's open dataset on Zenodo.
+
+I turned each jet into an image. The 35 most energetic particles are placed on a 37×37 grid of pseudorapidity and azimuthal angle, and every pixel stores 12 statistics about the particles that land in it, such as their count, total energy and transverse momentum, and higher moments like variance and skewness. Each image is rotated and flipped to a common orientation, so the network does not learn the jet's arbitrary direction, and then normalized pixel by pixel.
+
+The classifier is a custom CNN built in MATLAB Deep Network Designer. It combines ResNeXt-style grouped convolutions with squeeze-and-excitation blocks, which learn how much weight to give each channel. A few whole-jet statistics are added just before the fully connected layers. Grouped convolutions also keep the computation small and easy to parallelize, which was chosen with FPGA deployment in mind. The final model reached **90.87% accuracy**, a **ROC AUC of 0.968** and a **PR AUC of 0.971**.

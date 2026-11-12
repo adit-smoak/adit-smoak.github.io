@@ -5,7 +5,8 @@ collection: portfolio
 order: 3
 ---
 
-A Mecanum-wheel robot that watches the space above it with an upward-facing 170° fisheye camera and moves toward a thrown ball. All processing runs on a Raspberry Pi 5, at about 60 FPS on 192×192 frames, with no hardware acceleration.
+A small robot with a camera pointing straight up. When someone throws a ball over it, the robot works out where the ball is heading and drives there. It uses Mecanum wheels, which let it move in any direction without turning first.
 
-* Detected the ball with HSV color masking and two sets of contour thresholds, one for a nearby ball and one for a small, distant one in the air. A multi-frame confirmation step rejects false positives.
-* Implemented two control modes. Continuous tracking uses a Kalman filter and a PD controller with a correction for fisheye distortion. Direction prediction fits a line to recent ball positions and commits to a one-second drive in that direction.
+Everything runs on a Raspberry Pi 5 with no hardware accelerator. A 170° fisheye camera captures 192×192 frames, which OpenCV processes at about 60 FPS. The ball is found by its colour (HSV masking) and the shape of its outline. There are separate thresholds for a large ball close to the camera and a small one far up in the air, and a detection only counts once it appears in several frames in a row.
+
+The robot has two control modes. The first tracks the ball continuously: a Kalman filter smooths its position and a PD controller steers, with a correction for the fisheye lens distortion. The second fits a line to the ball's last few positions, predicts its direction, and commits to a one-second drive that way.

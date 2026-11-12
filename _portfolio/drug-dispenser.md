@@ -5,7 +5,6 @@ collection: portfolio
 order: 4
 ---
 
-Medicine queues at Indian government hospitals are long, largely because dispensing is done by hand. This project automates that step.
+Medicine queues at Indian government hospitals are long, largely because medicines are handed out manually at a counter. This project is a small-scale prototype that automates that step.
 
-* Built a Flutter app that lets doctors issue prescriptions digitally. Each prescription maps to a one-time code (OTP) given to the patient.
-* Built a custom vending machine using an ESP32 and 360° servo motors. Each OTP is linked to the batch of medicines in the prescription, and the medicines are dispensed once the code is verified.
+A doctor writes the prescription in a Flutter app instead of on paper. The app links the prescription to a one-time code (OTP), which the patient takes to a dispensing machine. The machine is built around an ESP32 microcontroller. When the patient enters the code and it is verified, the machine uses 360° servo motors to drop every medicine in that prescription.
